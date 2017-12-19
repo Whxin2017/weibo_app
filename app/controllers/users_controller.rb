@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 	  @user = User.new(user_params)
 	  if @user.save
 		  #succeed
+		  log_in @user
 		  flash[:success] = "Welcome to the WEIBO APP!"
 		  redirect_to @user
 	  else
