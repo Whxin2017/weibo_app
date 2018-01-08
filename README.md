@@ -1,4 +1,5 @@
 # Ruby on rails weibo application
+rails -version 5.1.2   
 
 ## Getting started
 To get started with the app,clone the repo and then install the needed gems:  
