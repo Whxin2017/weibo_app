@@ -20,4 +20,3 @@ $ rails server
 
 
 
-# Weibo_app

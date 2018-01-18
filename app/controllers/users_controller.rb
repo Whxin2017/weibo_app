@@ -18,11 +18,11 @@ class UsersController < ApplicationController
 	  @user = User.new(user_params)
 	  if @user.save
 		  @user.send_activation_email
-		  flash[:info] = "请查看邮箱里的激活链接"
+		  flash[:info] = "Please check your email to activate your account."
 		  redirect_to root_url
 		  #succeed
 	#	  log_in @user
-	#	  flash[:success] = "欢迎来到微博 APP!"
+	#	  flash[:success] = "Welcome to the WEIBO APP!"
 	#	  redirect_to @user
 	  else
 		  render 'new'
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   def update
 	  @user = User.find(params[:id])
 	 if @user.update_attributes(user_params)
-		  flash[:success] = "上传成功！"
+		  flash[:success] = "Profile updated"
 		  redirect_to @user
 		  #处理更新成功的情况
 	  else
@@ -52,7 +52,7 @@ class UsersController < ApplicationController
   
   def destroy
 	  User.find(params[:id]).destroy
-	  flash[:success] = "用户已删除。"
+	  flash[:success] = "User deleted"
 	  redirect_to users_url
   end
 

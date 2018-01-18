@@ -14,14 +14,9 @@
 		</section>
 	</aside>
 	<div class="col-md-8">
-<<<<<<< HEAD
 	<%= render 'follow_form' if logged_in? %>
 		<% if @user.microposts.any? %>
 			<h3>Microposts (<%= @user.microposts.count %>)</h3>
-=======
-		<% if @user.microposts.any? %>
-			<h3>微博 (<%= @user.microposts.count %>)</h3>
->>>>>>> CNweibo
 		<ol class="microposts" %>
 			<%= render @microposts %>
 		</ol>

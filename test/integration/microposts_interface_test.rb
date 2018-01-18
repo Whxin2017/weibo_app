@@ -29,11 +29,7 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
 		assert_match content,response.body
 		
 		#删除一篇微博
-<<<<<<< HEAD
 		assert_select 'a',text: 'delete'
-=======
-		assert_select 'a',text: '删除'
->>>>>>> CNweibo
 		first_micropost = @user.microposts.paginate(page: 1).first
 		assert_difference 'Micropost.count', -1 do
 			delete micropost_path(first_micropost)

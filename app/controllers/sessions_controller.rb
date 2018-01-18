@@ -11,15 +11,15 @@ class SessionsController < ApplicationController
 		  params[:session][:remember_me] == '1' ? remember(user) : forget(user)
 		  redirect_back_or user
 		else
-			message = "未激活成功 "
-			message += "请查看邮箱中的激活链接。"
+			message = "Account not activated. "
+			message += "Check your email for the activation link."
 			flash[:warning] = message
 			redirect_to root_url
 		end
 
 	  else
 		  #创建一个错误消息
-		  flash.now[:danger] = '邮箱地址或密码错误'  #不完全正确
+		  flash.now[:danger] = 'Invalid email/password combination'  #不完全正确
 		render 'new'
 	  end
   end

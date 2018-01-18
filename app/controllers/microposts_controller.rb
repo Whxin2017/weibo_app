@@ -5,11 +5,7 @@ class MicropostsController < ApplicationController
 	def create
 		@micropost = current_user.microposts.build(micropost_params)
 		if @micropost.save
-<<<<<<< HEAD
 			flash[:success] = "Micropost created!"
-=======
-			flash[:success] = "微博已上传!"
->>>>>>> CNweibo
 			redirect_to root_url
 		else
 			@feed_items = []
@@ -20,11 +16,7 @@ class MicropostsController < ApplicationController
 
 	def destroy
 		@micropost.destroy
-<<<<<<< HEAD
 		flash[:success] = "Micropost deleted"
-=======
-		flash[:success] = "微博已删除"
->>>>>>> CNweibo
 		redirect_to request.referrer || root_url
 	end
 

@@ -10,17 +10,10 @@ class PasswordResetsController < ApplicationController
 	  if @user
 		  @user.create_reset_digest
 		  @user.send_password_reset_email
-<<<<<<< HEAD
 		  flash[:info] = "Email sent with password reset instructions"
 		  redirect_to root_url
 	  else
 		  flash.now[:danger] = "Email address not found"
-=======
-		  flash[:info] = "邮件已发送。请到注册邮箱激活用户。"
-		  redirect_to root_url
-	  else
-		  flash.now[:danger] = "找不到此邮箱地址。"
->>>>>>> CNweibo
 		  render 'new'
 	  end
   end
@@ -30,19 +23,11 @@ class PasswordResetsController < ApplicationController
 
   def update
 	  if params[:user][:password].empty?        #第三种情况，没有填写密码和密码确认，更新失败（看起来像是成功了）
-<<<<<<< HEAD
 		  @user.errors.add(:password,"can't be empty")
 		  render 'edit'
 	  elsif @user.update_attributes(user_params)  #第四种情况，成功更新密码
 		  log_in @user
 		  flash[:success] = "Password has been reset"
-=======
-		  @user.errors.add(:password,"不能为空")
-		  render 'edit'
-	  elsif @user.update_attributes(user_params)  #第四种情况，成功更新密码
-		  log_in @user
-		  flash[:success] = "密码修改成功！"
->>>>>>> CNweibo
 		  redirect_to @user
 	  else
 		  render 'edit'         #第二种情况，填写的新密码无效，更新失败
@@ -70,11 +55,7 @@ class PasswordResetsController < ApplicationController
 
    def check_expiration
 	   if @user.password_reset_expired?
-<<<<<<< HEAD
 		   flash[:danger] = "Password reset has expired."
-=======
-		   flash[:danger] = "此链接已过期。"
->>>>>>> CNweibo
 		   redirect_to new_password_reset_url
 	   end
    end
